@@ -1,0 +1,336 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christian Chi | Portolio</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/main.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/site.css' %}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static '/images/images/apple-icon-180x180.png' %}">
+    <link href="./assets/favicon.ico" rel="icon">
+    
+    
+</head>
+<body>
+    <!-- Add your content of header -->
+<div class="background-color-layer" style="background-image: url('{% static 'images/me2.jpg' %}')"
+></div>
+<main class="content-wrapper">
+  <header class="white-text-container section-container">
+    <div class="text-center">
+      <h1>I am Christian Chi</h1>
+      <p>Python Developer</p>
+      <p>
+        <a class="fa-icon fa-icon-2x" href="https://facebook.com/christackoms" title="">
+          <i class="fa fa-facebook"></i>
+        </a>
+        <a class="fa-icon fa-icon-2x" href="https://twitter.com/chrishalogen_" title="">
+          <i class="fa fa-twitter"></i>
+        </a>
+        <a class="fa-icon fa-icon-2x" href="https://instagram.com/chrishalogen" title="">
+          <i class="fa fa-instagram"></i>
+        </a>
+        <a class="fa-icon fa-icon-2x" href="https://www.linkedin.com/in/chrishalogen" title="">
+          <i class="fa fa-linkedin"></i>
+        </a>
+        <a class="fa-icon fa-icon-2x" href="https://github.com/chrishalogen" title="">
+          <i class="fa fa-github"></i>
+        </a>
+      </p>
+    </div>
+  </header>
+
+
+
+<!-- Add your site or app content here -->
+ 
+ <div class="container">
+   <div class="row">
+     <div class="col-xs-12">
+
+        <div class="card">
+          <div class="card-block">
+            <h2>About me</h2>
+            <div class="row">
+              <div class="col-md-4">
+                <p><img src="{% static '/images/me1.jpg' %}" class="img-responsive" alt=""></p>
+              </div>
+              <div class="col-md-8">
+
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+              <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-block">
+            <h2>Projects</h2>
+            <div class="row">
+              <div class="col-md-4">
+                <img src="{% static '/images/rate.jpg' %}" class="img-responsive" alt="">
+                <h3 class="h5">Exchange Rate App</h3>
+                <p>An application that Fetches the current exchance rate and allows you to compare against more than 20 currencies.</p>
+                <p><a href="https://halogen-exchange.halogenius.repl.co" class="btn btn-primary btn-sm">View</a></p>
+              </div>
+              <div class="col-md-4">
+                <img src="{% static '/images/chat.jpg' %}" class="img-responsive" alt="">
+                <h3 class="h5">Mini Chat App</h3>
+                <p>With this chat application, you can chat with someone else from any part of the world if they know the name of your room.</p>
+                <p><a href="https://chat-app.halogenius.repl.co/" class="btn btn-primary btn-sm">View</a></p>
+              </div>
+              <div class="col-md-4">
+                <img src="{% static '/images/weather.png' %}" class="img-responsive" alt="">
+                <h3 class="h5">Weather App</h3>
+                <p>Enables users to check the current weather statistics of popular cities. This will come in very handy for travellers.</p>
+                <p><a href="https://weatherapp.halogenius.repl.co/" class="btn btn-primary btn-sm">View</a></p>
+              </div>
+              
+            </div>
+
+            <!-- <h2>Projects</h2> -->
+            <div style="height:20px"></div>
+            <div class="row">
+              <div class="col-md-4">
+                <img src="{% static '/images/blog.png' %}" class="img-responsive" alt="">
+                <h3 class="h5">Blogging App</h3>
+                <p>An application where you can add a blog via the admin dashboard to be displayed on the Home Page. There is a dedicated post page for blogs as well.</p>
+                <p><a href="" class="btn btn-primary btn-sm">View</a></p>
+              </div>
+              <div class="col-md-4">
+                <img src="{% static '/images/chat.jpg' %}" class="img-responsive" alt="">
+                <h3 class="h5">Univendor Ecommerce Site</h3>
+                <p>A merchant gets to create his store, add products, categories and all. Paypal payment processing and Fedex/USPS shipping method(Still In Transit)</p>
+                
+              </div>
+              <div class="col-md-4">
+                <img src="{% static '/images/weather.png' %}" class="img-responsive" alt="">
+                <h3 class="h5">Multivendor Ecommerce Site</h3>
+                <p>Different merchants gets to create their stores, add products, categories and all. Paypal payment processing and Fedex/USPS shipping method(Still In Transit)</p>
+                
+              </div>
+              
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-block">
+            <h2>Skills</h2>
+            <div class="row">
+              <div class="col-md-3">
+                <img src="{% static '/images/4-htmlcss.jpg' %}" class="img-responsive" width="400" height="400" alt="" ">
+                <h3 class="h5 text-center">HTML - CSS</h3>
+              </div>
+              <div class="col-md-3">
+                <img src="{% static '/images/js2.jpg' %}" class="img-responsive" width="400" height="400" alt="" >
+                <h3 class="h5 text-center">Vanila JS</h3>
+              </div>
+              <div class="col-md-3">
+                <img src="{% static '/images/django.jpg' %}" class="img-responsive" width="400" height="400" alt="" >
+                <h3 class="h5 text-center">Python - Django</h3>
+              </div>
+              <div class="col-md-3">
+                <img src="{% static '/images/download.jpg' %}" class="img-responsive" width="400" height="400" alt="" >
+                <h3 class="h5 text-center">Bootstrap 5</h3>
+              </div>
+              <div class="col-md-3">
+                <img src="{% static '/images/opencv.png' %}" class="img-responsive" width="400" height="400" alt="" >
+                <h3 class="h5 text-center">Open CV</h3>
+              </div>
+              <div class="col-md-3">
+                <img src="{% static '/images/posgresql.png' %}" class="img-responsive" width="400" height="400" alt="" >
+                <h3 class="h5 text-center">PosgresQL</h3>
+              </div>
+              
+              <div class="col-md-3">
+                <img src="{% static '/images/tf.jpg' %}" class="img-responsive" width="400" height="400" alt="" >
+                <h3 class="h5 text-center">Tensor Flow</h3>
+              </div>
+              <div class="col-md-3">
+                <img src="{% static '/images/keras.png' %}" class="img-responsive" width="400" height="400" alt="" >
+                <h3 class="h5 text-center">Keras</h3>
+              </div>
+              
+            </div>
+
+          </div>
+        </div>
+        
+
+        <div class="card">
+          <div class="card-block">
+            <h2>Education</h2>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="education-experience">
+                  <small class="date">2018-2021</small>
+                  <h3 class="h5 date-title">Industrial Mathematics</h3>
+                  <p>UNILAG - Nigeria</p>
+                </div>
+                
+              </div>
+              <div class="col-md-4">
+                <div class="education-experience">
+                  <small class="date">2019 - 2020</small>
+                  <h3 class="h5 date-title">Google Digital Skills for Africa</h3>
+                  <p>Google</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="education-experience">
+                  <small class="date">2021-2022</small>
+                  <h3 class="h5 date-title">Python</h3>
+                  <p>Hacker Ranks</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="card">
+          <div class="card-block">
+            <h2>Language</h2>
+            <div class="row">
+              <div class="col-md-3">
+                <div class="language-experience">
+                  <h3 class="h5">Igbo  <small>Bilingual</small></h3>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="language-experience">
+                  <h3 class="h5">Yoruba  <small>Bilingual</small></h3>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="language-experience">
+                  <h3 class="h5">English  <small>Fluent</small></h3>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <div class="language-experience">
+                  <h3 class="h5">French  <small>Beginner</small></h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        
+        
+        <div class="card">
+          <div class="card-block">
+            <h2>Social Network</h2>
+            <div class="row">
+              <div class="col-md-3">
+                <p class="social-buttons"><a href="https://twitter.com/chrishalogen_" title=""><span class="social-round-icon fa-icon"><i class="fa fa-twitter"></i></span>@ChrisHalogen_</a></p>
+              </div>
+              <div class="col-md-3">
+                <p class="social-buttons"><a href="https://www.linkedin.com/in/chrishalogen" title=""><span class="social-round-icon fa-icon"><i class="fa fa-linkedin"></i></span>Christian Chi</a></p>
+              </div>
+              <div class="col-md-3">
+                <p class="social-buttons"><a href="https://github.com/chrishalogen" title=""><span class="social-round-icon fa-icon"><i class="fa fa-github"></i></span>Chris Halogen</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-block">
+            <h2>Contact</h2>
+            <form id="post-form" class="reveal-content">
+              {% csrf_token %}
+              <div class="form-group">
+                <input type="email" name='email' class="form-control" id="email" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <input type="text" name='subject' class="form-control" id="subject" placeholder="Subject">
+              </div>
+              <div class="form-group">
+                <textarea id="message" class="form-control" rows="5" placeholder="Enter your message"></textarea>
+              </div>
+              <div class="form-group">
+                <button type="submit" class=" btn btn-primary">Send message</button>
+              </div> 
+            </form>
+          </div>
+        </div>
+       
+     </div>
+   </div>
+ </div>
+
+</main>
+<footer class="footer-container white-text-container text-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        
+        
+        <p>All right reserved © 2021 - Christian Chi</a></p>
+        <p>
+          <a class="fa-icon fa-icon-2x" href="https://facebook.com/christackoms" title="">
+            <i class="fa fa-facebook"></i>
+          </a>
+          <a class="fa-icon fa-icon-2x" href="https://twitter.com/chrishalogen_" title="">
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a class="fa-icon fa-icon-2x" href="https://github.com/chrishalogen" title="">
+            <i class="fa fa-github"></i>
+          </a>
+          <a class="fa-icon fa-icon-2x" href="https://www.linkedin.com/in/chrishalogen" title="">
+            <i class="fa fa-linkedin"></i>
+          </a>
+          <a class="fa-icon fa-icon-2x" href="https://instagram.com/chrishalogen" title="">
+            <i class="fa fa-instagram"></i>
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function (event) {
+     scrollRevelation('.card');
+  });
+
+
+  $(document).on('submit','#post-form',function(e){
+      // Preventing the system from reloading
+      // or going to another page as it would normally
+      e.preventDefault()
+
+      $.ajax({
+          type:'POST',
+          url: '/sendemail',
+          data:{
+              email:$('#email').val(),
+              subject:$('#subject').val(),
+              message:$('#message').val(),
+              csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+          },
+          success: function(data){
+              alert('Message Sent Successfully')
+              // console.log(data)
+          }
+      })
+      document.getElementById('message').value = ''
+  })
+
+    
+</script>
+
+<script type="text/javascript" src="{% static '/js/main.js' %}"></script></body>
+
+    
+</body>
+</html>

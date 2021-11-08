@@ -1,0 +1,151 @@
+{% extends 'shop/main.html' %} {% load static %} {% block content %}
+
+<div class="container my-5 shadow">
+  <div class="row py-5">
+    <!-- 
+        
+        <div class="col-lg-4">
+      <button class="btn btn-labelled btn-outline-dark">
+        <span class="btn-label"><i class="fa fa-arrow-left"></i></span> Continue
+        Shopping
+      </button>
+      <h5 style="margin-top: 3rem"><strong>Items : 3</strong></h5>
+    </div>
+    <div class="col-lg-4">
+      <h5 class="mx-auto align-middle">
+        <strong>Total : $ 432</strong>
+      </h5>
+    </div>
+    <div class="col-lg-4">
+      <button style="float: right" class="btn btn-success">
+        <span class="btn-label"
+          >Checkout <i class="fa fa-arrow-right"></i
+        ></span>
+      </button>
+    </div> -->
+    <!-- ------------- -->
+    <div class="col-lg-12">
+      <a class="btn btn-outline-dark" href="{% url 'store' %}"
+        >&#x2190; Continue Shopping</a
+      >
+
+      <br />
+      <br />
+      <table class="table">
+        <tr>
+          <th>
+            <h5 style="margin-top: 10px">
+              Items: <strong>{{order.get_cart_items}}</strong>
+            </h5>
+          </th>
+          <th>
+            <h5 class="text-center" style="margin-top: 10px">
+              Total:<strong>$ {{order.get_cart_total}}</strong>
+            </h5>
+          </th>
+          <th>
+            <a
+              style="float: right; margin: 5px"
+              class="btn btn-success"
+              href="{% url 'checkout' %}"
+              >Checkout</a
+            >
+          </th>
+        </tr>
+      </table>
+
+      <br />
+    </div>
+  </div>
+</div>
+
+<div class="container my-5 shadow">
+  <div class="row py-5">
+    <div class="col-lg-4">
+      <p class="text-center" style="color: black">
+        <strong>Item Image</strong>
+      </p>
+    </div>
+    <div class="col-lg-3">
+      <p class="text-center" style="color: black"><strong>Item Name</strong></p>
+    </div>
+    <div class="col-lg-1">
+      <p class="text-center" style="color: black"><strong>Price</strong></p>
+    </div>
+    <div class="col-lg-2">
+      <p class="text-center" style="color: black"><strong>Quantity</strong></p>
+    </div>
+    <div class="col-lg-1">
+      <p class="text-center" style="color: black"><strong>Total</strong></p>
+    </div>
+  </div>
+
+  {% for item in items%}
+
+  <div class="row my-3">
+    <div class="col-lg-4">
+      <center>
+        <img
+          class="img-thumbnail"
+          {% if item.product.imageURL %}
+          src="{{item.product.imageURL}}"
+          {% else %}
+          src="{% static 'images/hero_1.jpg' %}"
+          {% endif %}
+          alt=""
+          style="width: 200px; height: 150px"
+        />
+      </center>
+    </div>
+    <div class="col-lg-3">
+      <p class="text-center" style="color: black; margin-top: 30px">
+        {{item.product.name}}
+      </p>
+    </div>
+    <div class="col-lg-1">
+      <p class="text-center" style="color: black; margin-top: 30px">
+        $ {{item.product.price|floatformat:2}}
+      </p>
+    </div>
+    <div class="col-lg-2">
+      <!-- <p class="text-center" style="color: black; margin-top: 30px">
+        {{item.quantity}}
+      </p> -->
+
+
+
+      <div style="width: 70%;" class="input-group">
+        
+
+        
+        <span class="input-group-btn">
+            <button type="button" data-product = '{{item.product.id}}' data-action = 'remove' class=" btn btn-danger update-cart">-</span>
+            </button>
+        </span>
+        <input type="text" id="quantity" name="quantity" class="form-control input-number" value="{{item.quantity}}" min="0" disabled>
+        <span class="input-group-btn">
+            <button type="button" data-product = '{{item.product.id}}' data-action = 'add' class="btn btn-success update-cart">+</button>
+        </span>
+        
+      </div>
+
+
+
+
+
+
+    </div>
+
+    <div class="col-lg-1">
+      <p class="text-center cart-text" style="color: black; margin-top: 30px">
+        {{ item.get_total }}
+      </p>
+    </div>
+  </div>
+  {% endfor %}
+  <div style="height: 50px"></div>
+</div>
+
+<div style="height: 50px"></div>
+
+{% endblock content %}

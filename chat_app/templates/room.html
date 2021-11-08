@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="   crossorigin="anonymous"></script>
+
+    <title>Halogen Chat App</title>
+  </head>
+  <body style="background-color: black;">
+      <div class="container rounded col-lg-6 my-3" style="background-color: rgb(223, 223, 223);">
+          <div class="row justify-content-center align-content-center">
+                <h2 class="text-center my-4 py-4 ">
+                    Welcome to the Room
+                </h2>
+                <h4 class="text-center">Room Name: {{room_name}}</h4>
+                <h4 class="text-center">Chatting As: {{username}}</h4>
+
+          </div>
+        
+      </div>
+
+    <div id="display" class="container rounded col-lg-6 my-3 py-4" style="background-color: rgb(223, 223, 223); min-height:100px">
+
+      <!-- <div style="display: flex;">
+      <div class="card" style="width: 18rem; margin-left:auto">
+        <div class="card-body">
+          <h5 class="card-title">from: username</h5>
+          <p class="card-text">Message</p>
+          <p><strong>Time and date</strong></p>
+        </div>
+      </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">from: username</h5>
+          <p class="card-text">Message</p>
+          <p><strong>Time and date</strong></p>
+        </div>
+      </div> -->
+      </div>
+      
+
+    
+      <div class="container rounded col-lg-6 my-3 py-4" style="background-color: rgb(223, 223, 223);">
+        <form id="post-form">
+            {% csrf_token %}
+            <input type="text" id="username" value="{{username}}" name="username" hidden>
+            <input type="text" id="room_id" value="{{room_details.id}}" name="room" hidden>
+            
+            <div class="form-floating">
+                <textarea name="message" class="form-control" placeholder="" id="message" style="height: 100px"></textarea>
+                <label for="">Type your Message Here</label>
+            </div>
+            
+            <button type="submit" class="btn btn-success rounded my-2">Send Message</button>
+        </form>
+      </div>
+
+
+
+
+      
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+
+    <script>
+      $(document).ready(function(){
+          setInterval(function(){
+            $.ajax({
+              type: 'GET',
+              url: '/getMessages/{{room_name}}',
+              success: function(response){
+                
+                // console.log(response.messages)
+                var all_messages = jQuery.parseJSON(response.messages)
+                // console.log(all_messages[0].fields.user)
+                $('#display').empty()
+                for (var key in all_messages){
+                  // break
+
+                  console.log(String(username) == String(all_messages[key].fields.user))
+                  var current = username.value
+                  var actual = all_messages[key].fields.user
+                  // console.log('----------')
+                  
+                  if (current == actual){
+                    var temp = "<div class='card my-2' style='width: 16rem;'><div class='card-body'><h5 class='card-title'>from: "+all_messages[key].fields.user+"</h5><p class='card-text'>"+all_messages[key].fields.value+"</p><p><strong>"+all_messages[key].fields.date+"</strong></p></div></div></div>"
+                  }
+                  else{
+                    var temp = "<div style='display: flex;'><div class='card my-2' style='width: 16rem; margin-left:auto'><div class='card-body'><h5 class='card-title'>from: "+all_messages[key].fields.user+"</h5><p class='card-text'>"+all_messages[key].fields.value+"</p><p><strong>"+all_messages[key].fields.date+"</strong></p></div></div></div>"
+                  }
+                  $("#display").append(temp);
+                }
+              },
+              error: function(response){
+                alert('An error occured')
+              }
+            });
+          }
+          ,1000)
+        }
+      )
+    </script>
+
+    <script type="text/javascript">
+        $(document).on('submit','#post-form',function(e){
+            // Preventing the system from reloading
+            // or going to another page as it would normally
+            e.preventDefault()
+
+            $.ajax({
+                type:'POST',
+                url: '/send',
+                data:{
+                    username:$('#username').val(),
+                    room_id:$('#room_id').val(),
+                    message:$('#message').val(),
+                    csrfmiddlewaretoken:$('input[name=csrfmiddlewaretoken]').val(),
+                },
+                success: function(data){
+                    // alert(data)
+                    console.log(data)
+                }
+            })
+            document.getElementById('message').value = ''
+        })
+
+    </script>
+
+  </body>
+</html>
